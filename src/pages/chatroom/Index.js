@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getUser } from './../../redux/actions/UserActions';
 
-const Index = () => {
+const Index = ({ getUser: getCurrentUser, user }) => {
+    useEffect(() => {
+        getCurrentUser();
+    }, [getCurrentUser]);
+    if(!user) return window.location.href = '/';
   return (
     <div className='flex flex-col justify-center items-center w-full h-screen bg-white'>
             <div className='max-w-md bg-white rounded w-full flex flex-col'>
@@ -83,4 +89,10 @@ const Index = () => {
   )
 };
 
-export default Index;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        user: state.user
+    }
+};
+
+export default connect(mapStateToProps, { getUser })(Index);

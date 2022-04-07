@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setUser } from './../redux/actions/UserActions';
 
-const Index = () => {
+const Index = (props) => {
     const navigate = useNavigate();
     const [name, setName] = useState('');
     return (
@@ -11,10 +13,11 @@ const Index = () => {
                 <p className='text-sm text-gray-500 capitalize text-center'>Name field is required</p>
                 <form onSubmit={(e) => {
                     e.preventDefault();
+                    props.setUser(name);
                     navigate('/chatroom');
                 }}>
                     <div className='my-5'>
-                        <label for="name" className='font-semibold text-gray-500'>Name (s)</label>
+                        <label htmlFor="name" className='font-semibold text-gray-500'>Name (s)</label>
                         <input id="name" name="name" type="text" autoComplete='off' required className="rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm mt-2" placeholder="e.g John" value={name} onChange={e => setName(e.target.value)} />
                     </div>
                     <div className='my-8'>
@@ -26,4 +29,10 @@ const Index = () => {
     )
 };
 
-export default Index;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        user: state.user
+    }
+};
+
+export default connect(mapStateToProps, { setUser })(Index);
