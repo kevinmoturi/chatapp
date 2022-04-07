@@ -34,7 +34,7 @@ const Index = ({ getUser: getCurrentUser, user, getChats: getMessages, chats, se
                         } else {
                             return <div key={i} className='flex flex-row justify-start items-start gap-x-3 mt-5 px-2 w-full'>
                                 <img className='bg-gray-400 h-10 rounded-full object-contain' src='/img/profile.png' alt='avatar' />
-                                <p className='bg-gray-600 text-white py-2 px-6 rounded-sm'>{chat.message}</p>
+                                <p className='bg-gray-600 text-white py-2 px-6 rounded-sm'>{chat.message} - {chat.sender}</p>
                             </div>
                         }
                     })}
