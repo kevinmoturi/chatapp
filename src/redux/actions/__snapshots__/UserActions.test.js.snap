@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user actions action type should be GET_USER and snapshot taken 1`] = `
+Array [
+  Object {
+    "type": "GET_USER",
+  },
+]
+`;
+
+exports[`user actions action type should be SET_USER and should pass name in the payload and snapshot taken 1`] = `
+Array [
+  Object {
+    "type": "GET_USER",
+  },
+  Object {
+    "payload": "Kevin",
+    "type": "SET_USER",
+  },
+]
+`;
