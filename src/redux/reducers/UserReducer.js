@@ -1,6 +1,6 @@
 import { GET_USER, SET_USER } from './../types/Index';
 
-const initialState = null;
+export const initialState = null;
 
 export default function UserReducer(state = initialState, action) {
 

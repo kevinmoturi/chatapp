@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Reducer should handle GET_USER 1`] = `null`;
+
+exports[`User Reducer should handle SET_USER 1`] = `undefined`;
+
+exports[`User Reducer should return the initial state 1`] = `null`;
